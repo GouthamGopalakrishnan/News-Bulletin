@@ -1,0 +1,83 @@
+.navbar-main {
+    padding-right: 5rem;
+    padding-left: 5rem;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+.news-bulletin-logo{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+    margin-left: .5rem;
+    margin-top: 1rem;
+}
+.news-bulletin-logo-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.navbar-secondary-items {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 4em;
+    color: #000000
+}
+.secondary-texts{
+    font-size: 1rem;
+    margin-left: 1em;
+    padding-top: 1rem;
+}
+.navbar-secondary {
+    justify-content: flex-end;
+}
+.navbar-main > .navbar-toggler{
+    background-color: #4B5AA5;
+    background: url('../Icons/list.png') no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+.navbar-main > .navbar-toggler:focus{
+    box-shadow: none;
+}
+.location {
+    cursor: pointer;
+}
+
+
+/* media queries */
+
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+    .navbar-main {
+        padding-left: 1em;
+        padding-right: .5em;
+    }
+    .navbar-temp {
+        margin-left: 1em;
+    }
+}
+
+/* On screens that are 1200px or less */
+@media screen and (max-width: 1200px) {
+    .navbar-main {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    .navbar-secondary-items  {
+        margin-left: 0em;
+    }
+
+}
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+    .navbar-main {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    .navbar-secondary-items  {
+        margin-left: 0.5em;
+    }
+}
