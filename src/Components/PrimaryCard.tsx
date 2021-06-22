@@ -21,10 +21,15 @@ const PrimaryCard = () => {
     return(
         <div className="card-primary-main">
             <div className='row card-primary-row'>
+                
                 <div className=" col-sm-12 col-md-6 card-primary-first-col">
-                    <img src={demoList[0].articles[0].urlToImage === null ? noImage:demoList[0].articles[0].urlToImage } alt="" className="card-primary-image w-100"/>
+                    <a href={demoList[0].articles[0].url} target='blank' title={demoList[0].articles[0].title}>
+                        <img src={demoList[0].articles[0].urlToImage === null ? noImage:demoList[0].articles[0].urlToImage } alt="" className="card-primary-image w-100"/>
+                    </a>
                 </div>
-                <div className=" col-sm-12 col-md-6 card-primary-second-col">
+                <div className=" col-sm-12 col-md-6 card-primary-second-col px-2">
+                <a href={demoList[0].articles[0].url} target='blank' title={demoList[0].articles[0].title}>
+
                     <h1 className="primary-title">
                     {demoList[0].articles[0].title}
                     </h1>
@@ -37,6 +42,7 @@ const PrimaryCard = () => {
                         <img src={timeIcon} alt="" className="time-icon ms-3"/>
                         <p className="author-name publish-date mt-3 ms-1">{format(demoList[0].articles[0].publishedAt.slice(0,10))}</p>
                     </div>
+                </a>
                 </div>
             </div>
         </div>

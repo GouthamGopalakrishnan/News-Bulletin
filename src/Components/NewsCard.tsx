@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './NewsCard.css';
-import noImage from '../Images/2953962.jpg';
+import noImage from '../Images/newsBulletin.png';
 import userIcon from '../Icons/user.png';
 import timeIcon from '../Icons/date.png';
 
@@ -29,6 +29,7 @@ const NewsCard = () => {
             
                 <div className='col-sm-8 col-md-6 col-lg-4 ' style={{ flexDirection: 'column' }}>
                     <div className="news-card-col">
+                        <a href={article.url} target='blank' title={article.title}>
                         <Card
                             className="card-main"
                             hoverable
@@ -52,6 +53,7 @@ const NewsCard = () => {
                             </div>
 
                         </Card>
+                        </a>
                     </div>
                 </div>
             )
