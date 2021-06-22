@@ -34,7 +34,7 @@ const Header = () => {
 
 
     return (
-        <nav className="navbar navbar-expand-xl navbar-main ">
+        <nav className="navbar navbar-expand-lg navbar-main ">
             <div className="news-bulletin-logo-div text-nowrap">
                 <img src={newsIcon} alt="" className="news-icon" />
                 <h1 className="news-bulletin-logo">
