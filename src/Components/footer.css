@@ -1,0 +1,10 @@
+.footer-main{
+    background-color: #f0f0f0;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+}
+.footer-logo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
