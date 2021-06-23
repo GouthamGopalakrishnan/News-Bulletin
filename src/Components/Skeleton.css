@@ -42,3 +42,59 @@
     height: 2rem;
     width: 10rem;
 }
+
+
+/* media queries */
+
+/* On screens that are 1200px or less */
+@media screen and (max-width: 1200px) {
+    .one {
+        width:30rem;
+    }
+    .two {
+        width:20rem;
+    }
+    .three {
+        width:10rem;
+    }
+
+}
+
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+    .one {
+
+        width:20rem;
+        border-radius: .3rem;
+    }
+    .two {
+
+        width:10rem;
+        border-radius: .3rem;
+    }
+    .three {
+
+        width:5rem;
+
+    }
+
+}
+
+
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+    .one {
+
+        width:13rem;
+
+    }
+    .two {
+
+        width:6rem;
+    }
+    .three {
+
+        width:3rem;
+    }
+}

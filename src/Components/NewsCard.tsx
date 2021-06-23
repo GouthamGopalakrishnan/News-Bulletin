@@ -41,7 +41,7 @@ const NewsCard = (prop:MyProp) => {
                             <img src={article.urlToImage === null ? noImage : article.urlToImage} alt="" className='card-img w-100 p-0' />
                             <div className='card-body'>
                                 <h5 className="card-head-text text-wrap" style={{ height: '3rem' }}>
-                                    {article.title}
+                                    {article.source.name}
                                 </h5>
                                 <p className="card-description text-wrap" style={{ height: '3rem' }}>
                                     {article.description}

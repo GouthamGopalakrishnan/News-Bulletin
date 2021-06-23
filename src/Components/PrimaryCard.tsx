@@ -8,6 +8,8 @@ import userIcon from '../Icons/user.png';
 import timeIcon from '../Icons/date.png';
 import { demoList, News } from '../demolist';
 
+
+
 type Myprop = {
     data:News 
 }
@@ -21,9 +23,10 @@ const PrimaryCard = (prop:Myprop) => {
             return date.getDate()  + '-' + 0+(date.getMonth()+1) + '-' + date.getFullYear();
         }
     }
-    if (!prop.data || prop.data === null) return <p>No repos, sorry</p>;
     return(
         <div className="card-primary-main">
+
+
             <div className='row card-primary-row'>
                 
                 <div className=" col-sm-12 col-md-6 card-primary-first-col">
@@ -42,7 +45,7 @@ const PrimaryCard = (prop:Myprop) => {
                     </p>
                     <div className="post-details w-100">
                         <img src={userIcon} alt="" className="user-icon"/>
-                        <p className="author-name mt-3 ms-1">{prop.data.author}</p>
+                        <p className="author-name mt-3 ms-1">{prop.data.source.name}</p>
                         <img src={timeIcon} alt="" className="time-icon ms-3"/>
                         <p className="author-name publish-date mt-3 ms-1">{format(prop.data.publishedAt.slice(0,10))}</p>
                     </div>

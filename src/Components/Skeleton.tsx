@@ -4,6 +4,7 @@ import './Skeleton.css';
 const Skeleton = () => {
     return(
         <div className="skeleton-main">
+
             <div className='row'>
                 <div className='col-sm-12 col-md-6'>
                     <div className='left'></div>
