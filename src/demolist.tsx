@@ -1,8 +1,8 @@
-type Source = {
+export type Source = {
     id:string|null,
     name:string
 }
-type News = {
+export type News = {
     source:Source,
     author:string,
     title:string,
@@ -12,7 +12,7 @@ type News = {
     publishedAt:string,
     content:string
 }
-type NewsAPI ={
+export type NewsAPI ={
     status:string,
     totalResults:number,
     articles:News[]

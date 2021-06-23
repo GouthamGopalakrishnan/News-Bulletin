@@ -8,9 +8,12 @@ import timeIcon from '../Icons/date.png';
 import { Card,Divider } from 'antd';
 
 
-import {demoList} from '../demolist'; //demo list
+import {demoList, NewsAPI} from '../demolist'; //demo list
 
-const NewsCard = () => {
+type MyProp = {
+    data:NewsAPI
+}
+const NewsCard = (prop:MyProp) => {
 
     //convert yyyy-mm-dd to dd-mm-yyyy
     const format = (inputDate:string) => {
@@ -22,7 +25,7 @@ const NewsCard = () => {
     }
 
     
-    const newsArticle=demoList[0].articles.map((article,index) => {
+    const newsArticle=prop.data.articles.map((article,index) => {
         //remove the first news
         if (index !==0) {
             return(
