@@ -9,7 +9,7 @@ import timeIcon from '../Icons/date.png';
 import { demoList, News } from '../demolist';
 
 type Myprop = {
-    data:News
+    data:News 
 }
 
 const PrimaryCard = (prop:Myprop) => {
@@ -21,6 +21,7 @@ const PrimaryCard = (prop:Myprop) => {
             return date.getDate()  + '-' + 0+(date.getMonth()+1) + '-' + date.getFullYear();
         }
     }
+    if (!prop.data || prop.data === null) return <p>No repos, sorry</p>;
     return(
         <div className="card-primary-main">
             <div className='row card-primary-row'>
