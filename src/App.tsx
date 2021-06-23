@@ -2,12 +2,13 @@
 import React from 'react';
 import './App.css';
 import {demoList, NewsAPI} from './demolist';
-import { Skeleton } from 'antd';
+// import { Skeleton } from 'antd';
 
 import Header from './Components/Header';
 import NewsCard from './Components/NewsCard';
 import PrimaryCard from './Components/PrimaryCard';
 import Footer from './Components/Footer';
+import Skeleton from './Components/Skeleton';
 
 //axios
 import axios from 'axios';
@@ -50,10 +51,12 @@ const NewsBulletin = () => {
 
       <Header />
 
-      {newsList.loading === false ? checking() : <Skeleton className="skeleton"/>
+      {
+        newsList.loading === false ? checking() : <Skeleton />
       }
       {/* <PrimaryCard data={newsList.repos.articles[0]}/>
       <NewsCard data = {newsList.repos}/> */}
+      
       
     </div>
   );
