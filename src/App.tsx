@@ -1,7 +1,7 @@
 // import { Footer } from 'antd/lib/layout/layout';
 import React from 'react';
 import './App.css';
-import {demoList, NewsAPI} from './demolist';
+import {NewsAPI} from './types/types';
 import { Input } from 'antd';
 
 

@@ -8,7 +8,7 @@ import timeIcon from '../Icons/date.png';
 import { Card,Divider } from 'antd';
 
 
-import {demoList, NewsAPI} from '../demolist'; //demo list
+import {NewsAPI} from '../types/types'; //types
 
 type MyProp = {
     data:NewsAPI

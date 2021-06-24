@@ -8,7 +8,7 @@ import cloudIcon from '../Icons/cloud.png';
 import calenderIcon from '../Icons/calendar.png';
 import locationIcon from '../Icons/location.png';
 
-import { LocationAPI, WeatherAPI } from '../demolist';
+import { LocationAPI, WeatherAPI } from '../types/types';
 
 import './header.css'; 
 import axios from 'axios';

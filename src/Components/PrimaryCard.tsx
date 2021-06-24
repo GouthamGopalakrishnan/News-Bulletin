@@ -6,7 +6,7 @@ import noImage from '../Images/2953962.jpg';
 
 import userIcon from '../Icons/user.png';
 import timeIcon from '../Icons/date.png';
-import { demoList, News } from '../demolist';
+import { News } from '../types/types';
 
 
 
