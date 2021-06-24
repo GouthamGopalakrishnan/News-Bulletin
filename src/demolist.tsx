@@ -17,6 +17,107 @@ export type NewsAPI ={
     totalResults:number,
     articles:News[]
 }
+export type Coordinates = {
+    lon:number,
+    lat:number
+}
+export type Weather = {
+    id:number,
+    main:string,
+    description:string,
+    icon:string
+}
+// export type Main = {
+//     temp:number,
+//     feels_like:number,
+//     temp_min:number,
+//     temp_max:number,
+//     pressure:number,
+//     humidity:number
+// }
+// export type Wind = {
+//     speed:number,
+//     deg:number
+// }
+
+// export type Cloud = {
+//     all:number
+// }
+// export type Sys = {
+//     type: number,
+//     id: number,
+//     message: number,
+//     country: string,
+//     sunrise: number,
+//     sunset: number
+// }
+
+// export type WeatherAPI = {
+//     coord:Coordinates,
+//     weather:Weather[],
+//     base:string,
+//     main:Main,
+//     visibility:number,
+//     wind:Wind,
+//     clouds:Cloud,
+//     dt:string,
+//     sys:Sys,
+//     timezone:number,
+//     id:number,
+//     name:string,
+//     cod:number
+// }
+export type Rain = {
+    '1h':number
+}
+export type Current = {
+    dt:number,
+    sunrise:number,
+    sunset:number,
+    temp:number,
+    feels_like:number,
+    pressure:number,
+    humidity:number,
+    dew_point:number,
+    uvi:number,
+    clouds:number,
+    visibility:number,
+    wind_speed:number,
+    wind_deg:number,
+    weather:Weather[],
+    rain:Rain
+
+}
+export type WeatherAPI ={
+    lon:number,
+    lat:number,
+    timezone:string,
+    timezone_offset:number,
+    current:Current
+}
+export type Address = {
+    building:string,
+    road:string,
+    village:string,
+    county:string,
+    state_district:string,
+    state:string,
+    postcode:string,
+    country:string,
+    country_code:string
+}
+export type LocationAPI = {
+    place_id:string,
+    license:string,
+    osm_id:number,
+    lat:string,
+    lon:string,
+    display_name:string,
+    address:Address,
+    boundingbox:string[]
+}
+
+
 export const demoList:NewsAPI[] = [
     {
 

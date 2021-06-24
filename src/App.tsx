@@ -36,7 +36,7 @@ const NewsBulletin = () => {
           const allData = response.data;
           setNewsList({loading:false,data:allData})
         });
-
+      setSearchValue('');
 }, []);
 
    const checking = () => {
@@ -79,7 +79,7 @@ const NewsBulletin = () => {
       <Header />
       <div className='row search-row'>
             <Search
-            placeholder='input search text'
+            placeholder='Search NewsBulletin'
             value={searchValue}
             onChange={onChangeSearch}
             allowClear
