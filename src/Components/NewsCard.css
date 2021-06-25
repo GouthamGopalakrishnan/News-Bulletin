@@ -5,6 +5,10 @@
 .card-main > .ant-card-body {
     padding: 0;
 }
+.top-story-div{
+    display: flex;
+    flex-direction: row;
+}
 .top-story-text{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -84,7 +88,41 @@
     text-overflow: ellipsis;
     color: #464646;
 }
-
+.radio-div{
+    display: flex;
+    justify-content: flex-end;
+}
+.radio {
+    justify-content: flex-end;
+}
+.radio > .ant-radio-wrapper{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
+    text-transform: uppercase;
+    color: #464646;
+}
+.sort-by{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: .95rem;
+    line-height: 1rem;
+    letter-spacing:  -0.035em;
+    text-transform: uppercase;
+    color: #000000;
+}
+/* .top-story-div>.col-sm-12>.radio-div{
+    
+    justify-content: flex-start;
+    
+}
+.top-story-div>.col-md-6>.radio-div{
+    
+    justify-content: flex-end;
+    
+} */
 
 /* media queries */
 
@@ -113,6 +151,10 @@
     .news-card-col{
         padding: 1em 2em;
     }
+
+    .radio-div{
+        justify-content: flex-start;
+    }
 }
 
 
@@ -124,5 +166,8 @@
         padding-top: 1rem;
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+    .radio {
+        justify-content: flex-start;
     }
 }

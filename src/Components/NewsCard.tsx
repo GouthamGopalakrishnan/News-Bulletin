@@ -5,16 +5,24 @@ import noImage from '../Images/newsBulletin.png';
 import userIcon from '../Icons/user.png';
 import timeIcon from '../Icons/date.png';
 
-import { Card,Divider } from 'antd';
+import { Card,Divider,Radio,RadioChangeEvent } from 'antd';
 
 
-import {NewsAPI} from '../types/types'; //types
+import {NewsAPI,News} from '../types/types'; //types
 
 type MyProp = {
     data:NewsAPI
 }
 const NewsCard = (prop:MyProp) => {
+    const [value, setValue] = React.useState<number>(1);
+    const [newsData,setNewsData] = React.useState<News[]>(prop.data.articles)
 
+    const onChange= (e:RadioChangeEvent ) => {
+      console.log('radio checked', e.target.value);
+      setValue(e.target.value);
+      setNewsData(newsData.slice().reverse());
+    };
+  
     //convert yyyy-mm-dd to dd-mm-yyyy
     const format = (inputDate:string) => {
         var date = new Date(inputDate);
@@ -23,11 +31,9 @@ const NewsCard = (prop:MyProp) => {
             return date.getDate()  + '-' + 0+(date.getMonth()+1) + '-' + date.getFullYear();
         }
     }
+ 
+    const newsArticle=newsData.map((article,index) => {
 
-    
-    const newsArticle=prop.data.articles.map((article,index) => {
-        //remove the first news
-        if (index !==0) {
             return(
             
                 <div className='col-sm-8 col-md-6 col-lg-4 ' style={{ flexDirection: 'column' }}>
@@ -62,15 +68,28 @@ const NewsCard = (prop:MyProp) => {
             )
         }
 
-    })
+    )
 
     return(
         <div className='news-card-main'>
-            <div className="top-story-div">
-                <h4 className="top-story-text">TOP STORIES</h4>
+            <div className="top-story-div row">
+                <div className="col-sm-12 col-md-6">
+                <h4 className="top-story-text mt-1">TOP STORIES</h4>
+                </div>
+                <div className="col-sm-12 col-md-6">
+                <div className="radio-div">
+                    <p className="sort-by mt-1">Sort by : </p>
+                    <Radio.Group onChange={onChange} value={value} className="radio ms-3">
+                        <Radio value={1}>Recent</Radio>
+                        <Radio value={2}>Old</Radio>
+                    </Radio.Group>
+                </div>
+                </div>
+
+            </div>
                 <Divider />
                 
-            </div>
+            
             <div>
                 <div className='row justify-content-center'>
                     
@@ -83,4 +102,7 @@ const NewsCard = (prop:MyProp) => {
     )
 }
 export default NewsCard;
+
+
+
 
