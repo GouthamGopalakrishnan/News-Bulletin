@@ -120,18 +120,19 @@ const Header = (prop:MyProp) => {
             </button>
             <div className="collapse navbar-collapse navbar-secondary" id="navbarNavDropdown">
                 <div className='navbar-nav  text-wrap'>
+                <div className="navbar-secondary-items">
+                        <img src={calenderIcon} className="ms-3" alt="" />
+                        <p className="secondary-texts">
+                            <span style={{fontWeight:500}}>{today.getDate()} {monthNames[today.getMonth()]}</span> , {weekNames[today.getDay()]}
+                        </p>
+                    </div>
                     <div className="navbar-secondary-items">
                         <p className="secondary-texts" >{locationList.data?.address.state}</p>
                         <img src={cloudIcon} className="ms-3" alt="" />
                         <p className="secondary-texts" style={{fontWeight:500}}>{weatherList.data?.current.temp}&deg;C</p>
                         <img src={locationIcon} title="Use precise location" className="location ms-3" alt="" onClick={getLocation}/>
                     </div>
-                    <div className="navbar-secondary-items">
-                        <img src={calenderIcon} className="ms-3" alt="" />
-                        <p className="secondary-texts">
-                            <span style={{fontWeight:500}}>{today.getDate()} {monthNames[today.getMonth()]}</span> , {weekNames[today.getDay()]}
-                        </p>
-                    </div>
+
                     <div className="navbar-secondary-items">
                         <p className="secondary-texts me-2">Language : </p>
                         <Select defaultValue="English" style={{ width: 120 }} onChange={handleChange}>
