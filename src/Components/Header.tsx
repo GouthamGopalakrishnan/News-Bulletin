@@ -28,7 +28,7 @@ type LocationProp = {
 }
 
 type MyProp = {
-    selectedLanguage:(value:string) => void
+    selectedLanguage:(value:string) => void,
 }
 
 const Header = (prop:MyProp) => {
@@ -104,7 +104,9 @@ const Header = (prop:MyProp) => {
             setWeatherList({loading:false,data:weather.data});
             setLocationList({loading:false,data:location.data})
         }))
+
     }
+
 
 
     return (

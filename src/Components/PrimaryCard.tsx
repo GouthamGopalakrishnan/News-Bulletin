@@ -38,10 +38,10 @@ const PrimaryCard = (prop:Myprop) => {
                 <a href={prop.data.url} target='blank' title={prop.data.title}>
 
                     <h1 className="primary-title">
-                    {prop.data.title.slice(0,90)}
+                    {prop.data.title}
                     </h1>
                     <p className="primary-description">
-                    {prop.data.description.slice(0,150)}
+                    {prop.data.description}
                     </p>
                     <div className="post-details w-100">
                         <img src={userIcon} alt="" className="user-icon"/>

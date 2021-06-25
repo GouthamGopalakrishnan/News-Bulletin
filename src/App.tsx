@@ -11,6 +11,8 @@ import PrimaryCard from './Components/PrimaryCard';
 import Footer from './Components/Footer';
 import Skeleton from './Components/Skeleton';
 
+import NoResults from './Components/NoResults';
+
 //axios
 import axios from 'axios';
 
@@ -53,7 +55,7 @@ const NewsBulletin = () => {
    }
       else{
         // setSearchValue('')
-        return <h4 style={{textAlign:'center'}}>No Results</h4>
+        return <NoResults />
 
    }
   }
@@ -97,7 +99,6 @@ const NewsBulletin = () => {
 
   return (
     <div className="container-fluid bulletin-main">
-
       <Header selectedLanguage={handleLanguage}/>
       <div className='row search-row'>
             <Search

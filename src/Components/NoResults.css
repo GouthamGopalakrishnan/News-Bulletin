@@ -1,0 +1,15 @@
+.no-results-main{
+    text-align: center;
+}
+.no-results-text{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 2em;
+    line-height: 2.5rem;
+}
+.no-results-img{
+    width:21rem;
+    height: 16rem;
+}
