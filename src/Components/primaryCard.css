@@ -47,13 +47,12 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
-    line-height: 19px;
+    font-size: 1em;
+    line-height: 1rem;
     /* identical to box height */
+    text-align: center;
 
-    letter-spacing: 0.01em;
-
-    color: #B8B8B8;
+    color: #464646;
 }
 
 

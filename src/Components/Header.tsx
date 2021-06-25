@@ -18,7 +18,7 @@ import axios from 'axios';
 
 const { Option } = Select;
 
-type MyProp = {
+type Weather = {
     loading:boolean,
     data:WeatherAPI | null 
 }
@@ -27,10 +27,14 @@ type LocationProp = {
     data:LocationAPI |null
 }
 
-const Header = () => {
+type MyProp = {
+    selectedLanguage:(value:string) => void
+}
+
+const Header = (prop:MyProp) => {
     const [latitude,setLatitude] = React.useState<number>(10);
     const [longitude,setLongitude] = React.useState<number>(76.25);
-    const [weatherList,setWeatherList] = React.useState<MyProp>({loading: false, data:null});
+    const [weatherList,setWeatherList] = React.useState<Weather>({loading: false, data:null});
     const [locationList,setLocationList] = React.useState<LocationProp>({loading: false, data:null});
 
 
@@ -66,6 +70,7 @@ const Header = () => {
     //Track the change in Select
     const handleChange = (value: string) => {
         console.log('selected', { value });
+        prop.selectedLanguage(value)
     }
     //Geolocation API is used to get the geographical position of a user.
     const getLocation = () => {
@@ -130,8 +135,19 @@ const Header = () => {
                     <div className="navbar-secondary-items">
                         <p className="secondary-texts me-2">Language : </p>
                         <Select defaultValue="English" style={{ width: 120 }} onChange={handleChange}>
-                            <Option value="English">English</Option>
-                            <Option value="Malayalam">Malayalam</Option>
+                            <Option value="en">English</Option>
+                            <Option value="ar">Arabic</Option>
+                            <Option value="de">German</Option>
+                            <Option value="es">Spanish</Option>
+                            <Option value="fr">French</Option>
+                            <Option value="he">Hebrew</Option>
+                            <Option value="it">Italian</Option>
+                            <Option value="nl">Dutch</Option>
+                            <Option value="no">Norwegian</Option>
+                            <Option value="ru">Russia</Option>
+                            <Option value="se">Northern Sweden</Option>
+                            <Option value="zh">Chinese</Option>
+                            
                         </Select>
                     </div>
                 </div>

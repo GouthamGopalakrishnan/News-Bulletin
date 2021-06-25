@@ -23,7 +23,9 @@ type MyProp = {
 const NewsBulletin = () => {
   const [newsList,setNewsList] = React.useState<MyProp>({loading: false, data:null});
   const [searchValue , setSearchValue] = React.useState<string>('');
-  const [result,setResult] = React.useState<string>('')
+  const [result,setResult] = React.useState<string>('');
+  const [language,setLanguage] = React.useState<string>('en');
+
 
   const { Search } = Input;
 
@@ -31,7 +33,7 @@ const NewsBulletin = () => {
   React.useEffect(() => {
     setNewsList({loading:true,data:null});
     // GET request using axios inside useEffect React hook
-    axios.get('https://newsapi.org/v2/top-headlines?q=india&from=2021-06-22&to=2021-06-22&language=en&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8')
+    axios.get('https://newsapi.org/v2/top-headlines?q=india&language='+language+'&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8')
         .then(response => {
           const allData = response.data;
           setNewsList({loading:false,data:allData})
@@ -40,7 +42,7 @@ const NewsBulletin = () => {
 }, []);
 
    const checking = () => {
-     if (newsList.data !== null) {
+     if ((newsList.data !== null) && (newsList.data?.articles.length >0)) {
         return (
           <>
           <PrimaryCard data={newsList.data.articles[0]}/>
@@ -48,6 +50,11 @@ const NewsBulletin = () => {
           <Footer />
           </>
         )
+   }
+      else{
+        // setSearchValue('')
+        return <h4 style={{textAlign:'center'}}>No Results</h4>
+
    }
   }
 
@@ -60,7 +67,7 @@ const NewsBulletin = () => {
   const handleSearch = (value:string) => {
     setSearchValue('')
     setResult(value)
-    const searchUrl:string ='https://newsapi.org/v2/everything?q='+value+'&language=en&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8' ;
+    const searchUrl:string ='https://newsapi.org/v2/top-headlines?q='+value+'&language='+language+'&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8' ;
     setNewsList({loading:true,data:null});
     axios.get(searchUrl)
     .then(response => {
@@ -70,13 +77,28 @@ const NewsBulletin = () => {
     });
   }
   const resultDisplay = () => {
-    return <h5 className="results">Results for "{result}"</h5>
+    if ((newsList.data !== null) && (newsList.data?.articles.length >0)) {
+      return <h5 className="results">Results for "<span style={{color:'#4B5AA5'}}>{result}</span>"</h5>
+  }}
+
+  const handleLanguage = (value:string) =>{
+    setLanguage(value);
+    setNewsList({loading:true,data:null});
+    console.log("selected language",value)
+    // GET request using axios inside useEffect React hook
+    axios.get('https://newsapi.org/v2/top-headlines?q='+result+'&language='+value+'&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8')
+        .then(response => {
+          const allData = response.data;
+          setNewsList({loading:false,data:allData})
+        });
+      setSearchValue('');
+    console.log("selected language",value)
   }
 
   return (
     <div className="container-fluid bulletin-main">
 
-      <Header />
+      <Header selectedLanguage={handleLanguage}/>
       <div className='row search-row'>
             <Search
             placeholder='Search NewsBulletin'
@@ -91,7 +113,7 @@ const NewsBulletin = () => {
             />
             </div>
       {
-        result === '' ? '': resultDisplay()
+        (result === '')? '': resultDisplay()
       }
       {
         newsList.loading === false ? checking() : <Skeleton />
