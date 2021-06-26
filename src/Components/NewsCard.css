@@ -56,7 +56,6 @@
 }
 .card-img{
     height: 13rem;
-    /* box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.25); */
     border-radius: 12px 12px 0px 0px;
     
     object-fit: cover;
@@ -75,7 +74,6 @@
     text-overflow: ellipsis;
 }
 .card-img{
-    /* background-color: #B8B8B8; */
     background-image: url('../Images/newsBulletin.png') ;
     background-position: center;
     background-size: cover;
@@ -86,7 +84,6 @@
     font-weight: 500;
     font-size: .9rem;
     line-height: 19px;
-    /* identical to box height */
     flex-wrap: wrap;
     letter-spacing: 0.01em;
     overflow: hidden ;
@@ -118,16 +115,7 @@
     text-transform: uppercase;
     color: #000000;
 }
-/* .top-story-div>.col-sm-12>.radio-div{
-    
-    justify-content: flex-start;
-    
-}
-.top-story-div>.col-md-6>.radio-div{
-    
-    justify-content: flex-end;
-    
-} */
+
 
 /* media queries */
 

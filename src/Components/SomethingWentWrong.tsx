@@ -1,4 +1,3 @@
-import React from 'react';
 import wrong from '../Images/wrong.png';
 
 import './NoResults.css';

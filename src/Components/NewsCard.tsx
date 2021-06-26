@@ -17,6 +17,8 @@ const NewsCard = (prop:MyProp) => {
     const [value, setValue] = React.useState<number>(1);
     const [newsData,setNewsData] = React.useState<News[]>(prop.data.articles)
 
+
+    //track the change in radio button
     const onChange= (e:RadioChangeEvent ) => {
       console.log('radio checked', e.target.value);
       setValue(e.target.value);

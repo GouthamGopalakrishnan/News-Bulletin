@@ -1,8 +1,7 @@
-import React from 'react';
 
 import './primaryCard.css';
-// import image from '../Images/first.jpg';
-import noImage from '../Images/2953962.jpg';
+
+import noImage from '../Images/newsBulletin.png';
 
 import userIcon from '../Icons/user.png';
 import timeIcon from '../Icons/date.png';

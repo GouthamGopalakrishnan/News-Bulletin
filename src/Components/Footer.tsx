@@ -1,4 +1,3 @@
-import React from 'react';
 import newsIcon from '../Icons/news-icon.png';
 
 import './footer.css';

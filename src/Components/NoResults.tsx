@@ -1,4 +1,3 @@
-import React from 'react';
 import noResults from '../Images/NoResults.png';
 
 import './NoResults.css';

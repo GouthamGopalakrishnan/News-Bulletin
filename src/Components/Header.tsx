@@ -11,6 +11,7 @@ import locationIcon from '../Icons/location.png';
 import { LocationAPI, WeatherAPI } from '../types/types';
 
 import './header.css'; 
+// import axios
 import axios from 'axios';
 
 
@@ -44,7 +45,9 @@ const Header = (prop:MyProp) => {
         setWeatherList({loading:true,data:null});
         setLocationList({loading:true,data:null});
         axios.all([
+            //weather details using openweathermap API
             axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=28.7041&lon=-77.1025&units=metric&exclude=hourly,minutely,daily&appid=29e23408cfad2c66acb03a3e9d7d6d22'),
+            //reverse geocoding using locationiq
             axios.get('https://us1.locationiq.com/v1/reverse.php?key=pk.65331898a7697eb57d0e00951b6bb830&lat=28.7041&lon=77.1025&format=json')
     
         ]).then(axios.spread((weather,location) => {
