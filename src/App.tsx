@@ -12,6 +12,7 @@ import Footer from './Components/Footer';
 import Skeleton from './Components/Skeleton';
 
 import NoResults from './Components/NoResults';
+import SomethingWentWrong from './Components/SomethingWentWrong';
 
 //axios
 import axios from 'axios';
@@ -30,19 +31,29 @@ const NewsBulletin = () => {
   const [searchValue , setSearchValue] = React.useState<string>('');
   const [result,setResult] = React.useState<string>('');
   const [language,setLanguage] = React.useState<string>('en');
+  const [error,setError] = React.useState<boolean>(false);
 
 
   const { Search } = Input;
 
-  
+  const permenantKey:string = 'e59fd897898a42d68d07b44c0229d7e8';
+  // const temporaryKey:string = '0c7b1150570d4764b0530fbdd1468897'; //Temporary Key
   React.useEffect(() => {
     setNewsList({loading:true,data:null});
     // GET request using axios inside useEffect React hook
-    axios.get('https://newsapi.org/v2/top-headlines?q=india&language=en&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8')
+    axios.get('https://newsapi.org/v2/top-headlines?q=india&language=en&sortBy=publishedAt&apiKey='+permenantKey)
+        //Success handler
         .then(response => {
           const allData = response.data;
           setNewsList({loading:false,data:allData})
-        });
+        })
+        //Error Handler
+        .catch(error => {
+          console.log(error)
+          setError(true)
+          setNewsList({loading:false,data:null})
+        })
+        
       setSearchValue('');
 }, []);
 
@@ -57,10 +68,15 @@ const NewsBulletin = () => {
           </>
         )
    }
-      else{
-        return <NoResults />
+   //Checks for error
+      if (error ===true){
+        return <SomethingWentWrong />
 
-   }
+      }
+      //Handles No News
+      else {
+        return <NoResults />
+      }
   }
 
   //Track the change in search bar
@@ -73,12 +89,20 @@ const NewsBulletin = () => {
   const handleSearch = (value:string) => {
     setSearchValue('')
     setResult(value)
-    const searchUrl:string ='https://newsapi.org/v2/top-headlines?q='+value+'&language='+language+'&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8' ;
+    const searchUrl:string ='https://newsapi.org/v2/top-headlines?q='+value+'&language='+language+'&sortBy=publishedAt&apiKey='+permenantKey ;
     setNewsList({loading:true,data:null});
     axios.get(searchUrl)
+    //Success
     .then(response => {
       const allData = response.data;
       setNewsList({loading:false,data:allData})
+      
+    })
+    //Error
+    .catch(error => {
+      console.log(error)
+      setNewsList({loading:false,data:null})
+      setError(true)
       
     });
   }
@@ -94,10 +118,17 @@ const NewsBulletin = () => {
     setLanguage(value);
     setNewsList({loading:true,data:null});
     console.log("selected language",value)
-    axios.get('https://newsapi.org/v2/top-headlines?q='+result+'&language='+value+'&sortBy=publishedAt&apiKey=e59fd897898a42d68d07b44c0229d7e8')
+    axios.get('https://newsapi.org/v2/top-headlines?q='+result+'&language='+value+'&sortBy=publishedAt&apiKey='+permenantKey)
+    //Success
         .then(response => {
           const allData = response.data;
           setNewsList({loading:false,data:allData})
+        })
+    //Error
+        .catch(error => {
+          console.log(error)
+          setNewsList({loading:false,data:null})
+          setError(true)
         });
       setSearchValue('');
     console.log("selected language",value)
@@ -106,6 +137,8 @@ const NewsBulletin = () => {
   return (
     <div className="container-fluid bulletin-main">
       <Header selectedLanguage={handleLanguage}/>
+      
+      {/* Search Bar */}
       <div className='row search-row'>
             <Search
             placeholder='Search NewsBulletin'
@@ -119,12 +152,13 @@ const NewsBulletin = () => {
             
             />
             </div>
-
+      {/* display text according to search */}
       {
         (result === '')? '': resultDisplay()
       }
+      {/* display component according to loading status */}
       {
-        newsList.loading === false ? checking() : <Skeleton />
+        (newsList.loading === true) ? <Skeleton />:checking()  
       }
       
       

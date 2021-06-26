@@ -13,3 +13,11 @@
     width:21rem;
     height: 16rem;
 }
+.wrong-text {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #5f5e5e;
+    font-size: 1.6em;
+    line-height: 2.5rem;
+}

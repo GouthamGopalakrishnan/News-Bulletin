@@ -81,7 +81,7 @@ const NewsCard = (prop:MyProp) => {
                     <p className="sort-by mt-1">Sort by : </p>
                     <Radio.Group onChange={onChange} value={value} className="radio ms-3">
                         <Radio value={1}>Recent</Radio>
-                        <Radio value={2}>Old</Radio>
+                        <Radio value={2}>Past</Radio>
                     </Radio.Group>
                 </div>
                 </div>
